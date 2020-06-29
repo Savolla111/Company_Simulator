@@ -6,7 +6,6 @@ public class Pracownik {
     public String nazwisko;
 
 
-
     public Pracownik() {
     }
 
@@ -15,12 +14,12 @@ public class Pracownik {
         this.nazwisko = nazwisko;
         this.StawkaMiesieczna = StawkaMiesieczna;
     }
-    public String Wypisz()
-    {
-        return "Stawka miesieczna"+StawkaMiesieczna+"Imie: "+imie+" Nazwisko: "+nazwisko;
+
+    public String Wypisz() {
+        return "Stawka miesieczna" + StawkaMiesieczna + "Imie: " + imie + " Nazwisko: " + nazwisko;
     }
-    public Pracownik Kopiuj()
-    {
+
+    public Pracownik Kopiuj() {
         return new Pracownik(StawkaMiesieczna, imie, nazwisko);
     }
 

@@ -1,22 +1,21 @@
 package Modele.Klient;
 
-public class KlientSkrwl extends Klient{
+public class KlientSkrwl extends Klient {
     public KlientSkrwl(String Imie, String Nazwisko) {
         super(Imie, Nazwisko);
     }
 
     @Override
     public int IloscDniOpoznieniaOplaty() {
-        int wylosowana = Losuj(0,100);
-        if(wylosowana>=0 && wylosowana<=5) {
+        int wylosowana = Losuj(0, 100);
+        if (wylosowana >= 0 && wylosowana <= 5) {
             return 30;
         }
 
-        if(wylosowana>=0 && wylosowana<=30)
-        {
+        if (wylosowana >= 0 && wylosowana <= 30) {
             return 7;
         }
-        return  0;
+        return 0;
     }
 
     @Override
@@ -30,16 +29,14 @@ public class KlientSkrwl extends Klient{
     }
 
     @Override
-    public boolean CzyZaplci() {
-        if(Losuj(0,100)==1)
-        {
+    public boolean CzyZaplaci() {
+        if (Losuj(0, 100) == 1) {
             return false;
         }
-        return  true;
+        return true;
     }
 
-    public int Losuj(int minimalna, int maksymalna)
-    {
-        return  minimalna + (int)(Math.random() * maksymalna);
+    public int Losuj(int minimalna, int maksymalna) {
+        return minimalna + (int) (Math.random() * maksymalna);
     }
 }

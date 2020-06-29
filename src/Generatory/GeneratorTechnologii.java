@@ -8,12 +8,11 @@ import java.util.List;
 public class GeneratorTechnologii {
     public List<Technologia> technologie;
 
-    public GeneratorTechnologii()
-    {
+    public GeneratorTechnologii() {
         technologie = new ArrayList<Technologia>();
     }
-    public void Wygeneruj()
-    {
+
+    public void Wygeneruj() {
         Technologia frontEnd = new Technologia("Front-end", 0);
         Technologia backend = new Technologia("Backend", 0);
         Technologia bazaDanych = new Technologia("Baza danych", 0);

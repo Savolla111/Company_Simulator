@@ -2,8 +2,8 @@ package Modele.Pracownicy;
 
 public class Tester extends Pracownik {
 
-    public Tester(int StawkaMiesieczna,String imie, String nazwisko) {
-        super(StawkaMiesieczna,imie, nazwisko);
+    public Tester(int StawkaMiesieczna, String imie, String nazwisko) {
+        super(StawkaMiesieczna, imie, nazwisko);
     }
 
     public Tester() {

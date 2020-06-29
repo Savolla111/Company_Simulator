@@ -7,8 +7,7 @@ public class Technologia {
     public boolean CzyPrzezWlascicielaProgramowane;
     public boolean CzyPrzezWlascicielaTestowane;
 
-    public Technologia(String Nazwa, int DniRobcze)
-    {
+    public Technologia(String Nazwa, int DniRobcze) {
         this.Nazwa = Nazwa;
         this.DniRobocze = DniRobcze;
         CzyTestowana = false;
@@ -16,13 +15,11 @@ public class Technologia {
         CzyPrzezWlascicielaTestowane = false;
     }
 
-    public String Wypisz()
-    {
-        return  "Nazwa: "+Nazwa+" Dni robocze: "+DniRobocze;
+    public String Wypisz() {
+        return "Nazwa: " + Nazwa + " Dni robocze: " + DniRobocze;
     }
 
-    public Technologia Kpiuj()
-    {
+    public Technologia Kopiuj() {
         return new Technologia(Nazwa, DniRobocze);
     }
 }

@@ -3,8 +3,9 @@ package Modele.Pracownicy;
 public class Sprzedawca extends Pracownik {
 
     public int IloscDniPoszukiwan;
+
     public Sprzedawca(int StawkaMiesieczna, String imie, String nazwisko) {
-        super(StawkaMiesieczna,imie, nazwisko);
+        super(StawkaMiesieczna, imie, nazwisko);
         IloscDniPoszukiwan = 0;
     }
 
