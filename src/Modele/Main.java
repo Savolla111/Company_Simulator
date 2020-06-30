@@ -21,5 +21,6 @@ public class Main {
         generatorPodwykonawca.Wygeneruj();
         GeneratorPracownikow generatorPracownikow = new GeneratorPracownikow();
         generatorPracownikow.Wygeneruj();
+
     }
 }

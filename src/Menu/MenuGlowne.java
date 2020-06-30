@@ -44,7 +44,7 @@ public class MenuGlowne {
                 case 7:
                     MenuWypisz.MenuWypiszMetody.Szablon(MenuWypisz.MenuWypiszMetody.MenuOgloszeniePracownika());
                     indeks = sc.nextInt();
-                    MenuOgloszeniePrawnika.MenuOgloszeniePrawnikaMetody.Wybierz(indeks,generatorPracownikow, generatorPodwykonawca, firma);
+                    MenuOgloszeniePracownika.MenuOgloszeniePracownikaMetody.Wybierz(indeks,generatorPracownikow, generatorPodwykonawca, firma);
                     break;
                 case 8:
                     MenuWypisz.MenuWypiszMetody.Szablon(MenuWypisz.MenuWypiszMetody.MenuZwolnijPracownika());
@@ -59,7 +59,7 @@ public class MenuGlowne {
                 case 10:
                     MenuWypisz.MenuWypiszMetody.Szablon(MenuWypisz.MenuWypiszMetody.MenuZestwienie());
                     indeks = sc.nextInt();
-                    MenuZestawinie.MenuZestwienieMetody.Wybierz(indeks, firma);
+                    MenuZestawienie.MenuZestwienieMetody.Wybierz(indeks, firma);
                     break;
                 case 11:
                     WypiszPrzyjeteProjekty(firma);
