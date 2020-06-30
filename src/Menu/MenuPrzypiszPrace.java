@@ -105,7 +105,7 @@ public class MenuPrzypiszPrace {
                     }
                     MenuWypisz.MenuWypiszMetody.Szablon(wypiszProjekty);
                     int indeksProjektu = sc.nextInt();
-                    ////Wypisanie podwykonawcow ktorzy nie sa przydzieleni do zadnego projektu
+                    //Wypisanie podwykonawcow ktorzy nie sa przydzieleni do zadnego projektu
                     String wynik = "Przypisz pracownika: \n";
                     int[] indeksPrzydzielony = new int[firma.Pracownicy.size()];
                     int iterator = 0;
@@ -118,7 +118,7 @@ public class MenuPrzypiszPrace {
                         }
                     }
                     if (iterator != 0) {
-                        ////Wypisanie technologii do wyboru
+                        //Wypisanie technologii do wyboru
                         MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                         int indeksPracownika = sc.nextInt();
 
@@ -162,7 +162,7 @@ public class MenuPrzypiszPrace {
             }
         }
 
-        ////Sprawdzanie czy umiejetnosc danego pracownika jest mozliwa do pracy przy projekcie
+        //Sprawdzanie czy umiejetnosc danego pracownika jest mozliwa do pracy przy projekcie
         public static boolean CzyUmiejetnoscJestWProjekcie(Projekt projekt, Technologia technologia) {
 
             for (Technologia technologia1 : projekt.Technologie) {
