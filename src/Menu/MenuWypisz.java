@@ -13,9 +13,9 @@ public class MenuWypisz {
 
         public static String MenuGlowne()
         {
-            return "wybierz:\n|1|Przyjmij projekt\n|2|Posiwec dzien na szukanie nowego projektu\n|3|Nastepny dzien" +
+            return "wybierz:\n|1|Przyjmij projekt\n|2|Poswiec dzien na szukanie nowego projektu\n|3|Nastepny dzien" +
                     "\n|4|Programuj\n|5|Testuj\n|6|Dodaj Pracownika\n|7|Wykup ogloszenie w celu wyszukania pracownika" +
-                    "\n|8|Zwolnij pracownika\n|9|Przydziel prace\n|10|Pokaz zastawienie przydzielenia prcownikow" +
+                    "\n|8|Zwolnij pracownika\n|9|Przydziel prace\n|10|Pokaz zastawienie przydzielenia pracownikow" +
                     "\n|11|Przyjete projekty\n|12|Rozlicz urzedy\n|13|Oddaj gotowy projekt\n|14|Wyjscie";
         }
 
@@ -41,7 +41,7 @@ public class MenuWypisz {
 
         public static String MenuZestwienie()
         {
-            return "Zobacz zestwienie: \n|1|Podwykonawcy\n|2|Pracownicy";
+            return "Zobacz zestawienie: \n|1|Podwykonawcy\n|2|Pracownicy";
         }
 
 

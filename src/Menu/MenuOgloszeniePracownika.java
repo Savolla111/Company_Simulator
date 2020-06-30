@@ -2,7 +2,7 @@ package Menu;
 
 import Generatory.GeneratorPodwykonawca;
 import Generatory.GeneratorPracownikow;
-import Modele.Pracownicy.Firma;
+import Modele.Firma;
 
 public class MenuOgloszeniePracownika {
     public static class MenuOgloszeniePracownikaMetody
@@ -23,7 +23,7 @@ public class MenuOgloszeniePracownika {
             }
         }
 
-        public static void OglosPodwykonawca(Firma firma,GeneratorPodwykonawca generatorPodwykonawca)
+        public static void OglosPodwykonawca(Firma firma, GeneratorPodwykonawca generatorPodwykonawca)
         {
             try {
 
@@ -46,7 +46,7 @@ public class MenuOgloszeniePracownika {
             }
         }
 
-        public static void OglosPracownikow(Firma firma,GeneratorPracownikow generatorPracownikow)
+        public static void OglosPracownikow(Firma firma, GeneratorPracownikow generatorPracownikow)
         {
             try {
 
