@@ -49,6 +49,7 @@ public class Firma {
     }
 
     public void NastepnyDzien() {
+        //dodanie dnia
         ObecnyTermin = ObecnyTermin.DodajDni(1);
         if (IloscPieniedzy == 0) {
             CzyPrzegrana = true;
@@ -60,6 +61,7 @@ public class Firma {
         }
         int IloscTesterow = 0;
         try {
+            ////Zaplacenie wyplaty
             if (ObecnyTermin.Dzien % 30 == 0) {
                 for (Podwykonawca podwykonawca :
                         Podwykonawcy) {
@@ -71,6 +73,7 @@ public class Firma {
 
                 }
 
+                ////Sprawdzenie czy dwa razy w miesiacu sie rozliczales
                 if (IloscDniRozliczania >= 2) {
                     System.out.println("Nie rozliczyles sie w pore z urzedem. Firma zostaje zamknieta");
                     CzyPrzegrana = true;
@@ -82,6 +85,8 @@ public class Firma {
             PracujPodwykonawca();
 
             PracujPracownik(IloscTesterow);
+            //Sprawdzanie przypadku jak jest jeden tester na trzech pracownikow - wtedy na pewno projekt bedzie poprawny
+            //Sprawdzenie czy projekt zostal zakonczony i dodanie na liste zakonczonych projektow
             List<Integer> indeksyZakonczonychProjektow = new ArrayList<Integer>();
             int iterator = 0;
             for (int i = 0; i < Projekty.size(); i++
@@ -105,6 +110,7 @@ public class Firma {
 
 
             }
+            //usuniecie zakonczonych projektow z listy projektow
             for (int i : indeksyZakonczonychProjektow) {
                 Projekty.remove(i);
             }
@@ -129,6 +135,7 @@ public class Firma {
 
     }
 
+    //Losowanie przypadku choroby
     public boolean CzyChory() {
         if (Losuj(0, 100) == 1) {
             return true;

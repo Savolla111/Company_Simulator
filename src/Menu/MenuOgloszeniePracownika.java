@@ -6,6 +6,7 @@ import Modele.Firma;
 
 public class MenuOgloszeniePracownika {
     public static class MenuOgloszeniePracownikaMetody {
+        //dodanie nowych ogloszen
         public static void Wybierz(int wartosc, GeneratorPracownikow generatorPracownikow, GeneratorPodwykonawca generatorPodwykonawca, Firma firma) {
             switch (wartosc) {
                 case 1:
@@ -20,6 +21,7 @@ public class MenuOgloszeniePracownika {
             }
         }
 
+        //szukanie podwykonawcow
         public static void OglosPodwykonawca(Firma firma, GeneratorPodwykonawca generatorPodwykonawca) {
             try {
 
@@ -37,6 +39,7 @@ public class MenuOgloszeniePracownika {
             }
         }
 
+        //szukanie pracownikow
         public static void OglosPracownikow(Firma firma, GeneratorPracownikow generatorPracownikow) {
             try {
 

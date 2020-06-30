@@ -17,6 +17,7 @@ public class MenuGlowne {
         public static Scanner sc = new Scanner(System.in);
         public static int indeks = 0;
 
+        //metoda do dzialania na wybranej opcji
         public static void Wypisz(int wartosc, Firma firma, GeneratorProjektow generatorProjektow, GeneratorPodwykonawca generatorPodwykonawca, GeneratorPracownikow generatorPracownikow) {
             switch (wartosc) {
                 case 1:
@@ -74,7 +75,9 @@ public class MenuGlowne {
             }
         }
 
+        //oddanie projektu
         public static void OddajGotowyProjekt(Firma firma) {
+            //wypisanie wszystkich skonczonych projektow
             if (firma.ProjektyDoOddania.size() != 0) {
                 String wynik = "Wybierz: ";
                 for (int i = 0; i < firma.ProjektyDoOddania.size(); i++) {
@@ -83,8 +86,10 @@ public class MenuGlowne {
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
 
+                //sprawdzenie czy klient zaplacil
                 if (firma.ProjektyDoOddania.get(indeks).Klient.CzyZaplaci()) {
 
+                    //sprawdzenie poprawnosci projektu
                     if (!firma.ProjektyDoOddania.get(indeks).CzyProjektPoprawny()) {
                         System.out.println("Dales niepoprawny projekt");
                         if (!firma.ProjektyDoOddania.get(indeks).Klient.CzyUnikniecieKaryZaZlyProjekt()) {
@@ -106,6 +111,7 @@ public class MenuGlowne {
                         firma.ProjektyDoZaplaty.add(projektDoZaplaty);
                     }
 
+                    //sprawdzenie terminu i kary za projekt
                     if (firma.ProjektyDoOddania.get(indeks).TerminOddania.Dzien <= firma.ObecnyTermin.Dzien && firma.ProjektyDoOddania.get(indeks).TerminOddania.Rok <= firma.ObecnyTermin.Rok) {
                         if (firma.ProjektyDoOddania.get(indeks).Klient.
                                 CzyUnikniecieKaryZaSpoznienie(firma.ObecnyTermin.IloscDniMiedzyDatami(firma.ProjektyDoOddania.get(indeks).TerminOddania))) {
@@ -124,6 +130,7 @@ public class MenuGlowne {
             }
         }
 
+        //rozliczenie z urzedem
         public static void RozliczSieZUrzedem(Firma firma) {
             for (Podwykonawca podwykonawca : firma.Podwykonawcy
             ) {
@@ -137,6 +144,7 @@ public class MenuGlowne {
             firma.IloscDniRozliczania++;
         }
 
+        //wypisanie przyjetych projektow
         public static void WypiszPrzyjeteProjekty(Firma firma) {
             System.out.println("Projekty:");
             for (Projekt projekt : firma.Projekty) {
@@ -144,6 +152,7 @@ public class MenuGlowne {
             }
         }
 
+        //szukanie nowego projektu (po 5 dniach dodaje sie kolejny)
         public static void SzukajNowegoProjektu(Firma firma, GeneratorProjektow generatorProjektow) {
             if (firma.IloscDniSzukaniaProjektu != 5) {
                 firma.IloscDniSzukaniaProjektu++;
