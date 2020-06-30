@@ -18,7 +18,6 @@ public class MenuGlowne {
         public static Scanner sc = new Scanner(System.in);
         public static int indeks = 0;
 
-
         public static void Wypisz(int wartosc, Firma firma, GeneratorProjektow generatorProjektow, GeneratorPodwykonawca generatorPodwykonawca, GeneratorPracownikow generatorPracownikow) {
             switch (wartosc) {
                 case 1:
@@ -71,13 +70,12 @@ public class MenuGlowne {
                     OddajGotowyProjekt(firma);
                     break;
                 default:
-                    System.out.println("Bledne dane sprobuj jeszcze raz");
+                    System.out.println("Bledne dane sproboj jeszcze raz");
                     break;
             }
         }
 
-
-        public static void OddajGotowyProjekt()
+        public static void OddajGotowyProjekt(Firma firma)
         {
             if(firma.ProjektyDoOddania.size() != 0)
             {
@@ -89,8 +87,9 @@ public class MenuGlowne {
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
 
-                if(firma.ProjektyDoOddania.get(indeks).Klient.CzyZaplci())
+                if(firma.ProjektyDoOddania.get(indeks).Klient.CzyZaplaci())
                 {
+
                     if(!firma.ProjektyDoOddania.get(indeks).CzyProjektPoprawny())
                     {
                         System.out.println("Dales niepoprawny projekt");
@@ -109,7 +108,7 @@ public class MenuGlowne {
                     }
                     else
                     {
-                        System.out.println("oddales poprawny projekt");
+                        System.out.println("odDales poprawny projekt");
                         Termin terminZaplaty = firma.ProjektyDoOddania.get(indeks).TerminPlatnosci.Kopiuj();
                         terminZaplaty = terminZaplaty.DodajDni(firma.ProjektyDoOddania.get(indeks).Klient.IloscDniOpoznieniaOplaty());
                         Projekt projektDoZaplaty = firma.ProjektyDoOddania.get(indeks).Kopiuj();
@@ -141,11 +140,9 @@ public class MenuGlowne {
             {
                 System.out.println("Nie posiadasz gotowych projektow");
             }
-
         }
 
-
-        public static void RozliczSieZUrzedem()
+        public static void RozliczSieZUrzedem(Firma firma)
         {
             for (Podwykonawca podwykonawca:firma.Podwykonawcy
             ) {
@@ -155,12 +152,11 @@ public class MenuGlowne {
             ) {
                 firma.IloscPieniedzy -= 20 /pracownik.StawkaMiesieczna*100;
             }
-            System.out.println("Rozliczyles sie pomyslnie");
+            System.out.println("Rozliczyle sie pomyslnie");
             firma.IloscDniRozliczania++;
         }
 
-
-        public static void WypiszPrzyjeteProjekty()
+        public static void WypiszPrzyjeteProjekty(Firma firma)
         {
             System.out.println("Projekty:");
             for(Projekt projekt: firma.Projekty)
@@ -169,8 +165,7 @@ public class MenuGlowne {
             }
         }
 
-
-        public  static  void SzukajNowegoProjektu()
+        public  static  void SzukajNowegoProjektu(Firma firma, GeneratorProjektow generatorProjektow)
         {
             if(firma.IloscDniSzukaniaProjektu!=5)
             {
@@ -190,14 +185,14 @@ public class MenuGlowne {
             }
         }
 
-
-        public static void Programuj()
+        public static void Programuj(Firma firma)
         {
             try
             {
                 int indeksTechnologie ;
                 if(firma.Projekty.size()!=0)
                 {
+                    //Wyswuetlenie listy wszystkich projektow w ktorych mozesz programowac
                     String wynikProjekty = "Wybierz projekt przy ktorym chcesz programowac:\n";
                     for(int i=0; i<firma.Projekty.size(); i++)
                     {
@@ -239,8 +234,7 @@ public class MenuGlowne {
             }
         }
 
-
-        public static void Testuj()
+        public static void Testuj(Firma firma)
         {
             try {
                 if(firma.Projekty.size() !=0)
@@ -273,11 +267,9 @@ public class MenuGlowne {
                 System.out.println("Bledne dane");
             }
 
-
         }
 
-
-        public static void WybierzProjekt() {
+        public static void WybierzProjekt(Firma firma) {
             if(firma.CzyNowyProjekt)
             {
                 String wynik = "Wybierz projekt: \n";
