@@ -24,17 +24,16 @@ public class Main {
         GeneratorPracownikow generatorPracownikow = new GeneratorPracownikow();
         generatorPracownikow.Wygeneruj();
 
-        Firma firma = new Firma(1000,obecnyTermin);
+        Firma firma = new Firma(1000, obecnyTermin);
         firma.OgloszeniaPodwykonawca.addAll(generatorPodwykonawca.Podwykonawcy);
         firma.OgloszeniaPracownicy.addAll(generatorPracownikow.Pracownicy);
         firma.DostepneProjekty.addAll(generatorProjektow.Projekty);
 
-        while (opcjaWyboru!=14 && !firma.CzyPrzegrana && !firma.CzyWygrana)
-        {
-            System.out.println("Pieniadze: "+firma.IloscPieniedzy+"----------data: "+firma.ObecnyTermin.Dzien+" dzien "+firma.ObecnyTermin.Rok);
+        while (opcjaWyboru != 14 && !firma.CzyPrzegrana && !firma.CzyWygrana) {
+            System.out.println("Pieniadze: " + firma.IloscPieniedzy + "----------data: " + firma.ObecnyTermin.Dzien + " dzien " + firma.ObecnyTermin.Rok);
             MenuWypisz.MenuWypiszMetody.Szablon(MenuWypisz.MenuWypiszMetody.MenuGlowne());
             opcjaWyboru = sc.nextInt();
-            MenuGlowne.MenuGlowneMetody.Wypisz(opcjaWyboru,firma,generatorProjektow, generatorPodwykonawca, generatorPracownikow);
+            MenuGlowne.MenuGlowneMetody.Wypisz(opcjaWyboru, firma, generatorProjektow, generatorPodwykonawca, generatorPracownikow);
         }
     }
 }

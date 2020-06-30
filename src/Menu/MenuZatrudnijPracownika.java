@@ -7,13 +7,12 @@ import Modele.Pracownicy.Pracownik;
 import java.util.Scanner;
 
 public class MenuZatrudnijPracownika {
-    public static class MenuZatrudnijPracownikaMetody{
+    public static class MenuZatrudnijPracownikaMetody {
         public static Scanner sc = new Scanner(System.in);
         public static int indeks = 0;
-        public static void Wypisz(int wartosc, Firma firma)
-        {
-            switch (wartosc)
-            {
+
+        public static void Wypisz(int wartosc, Firma firma) {
+            switch (wartosc) {
                 case 1:
                     WybierzPodwykonawce(firma);
                     break;
@@ -27,15 +26,11 @@ public class MenuZatrudnijPracownika {
         }
 
 
-
-        public static void WybierzPodwykonawce(Firma firma)
-        {
-            try
-            {
+        public static void WybierzPodwykonawce(Firma firma) {
+            try {
                 String wynik = "Wybierz podwykonawce:\n";
-                for(int i =0; i<firma.OgloszeniaPodwykonawca.size(); i++)
-                {
-                    wynik +="|"+i+"|"+firma.OgloszeniaPodwykonawca.get(i).Wypisz()+" "+firma.OgloszeniaPodwykonawca.get(i).getClass()+"\n";
+                for (int i = 0; i < firma.OgloszeniaPodwykonawca.size(); i++) {
+                    wynik += "|" + i + "|" + firma.OgloszeniaPodwykonawca.get(i).Wypisz() + " " + firma.OgloszeniaPodwykonawca.get(i).getClass() + "\n";
                 }
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
@@ -44,21 +39,16 @@ public class MenuZatrudnijPracownika {
                 firma.OgloszeniaPodwykonawca.remove(indeks);
                 firma.IloscPieniedzy -= podwykonawca.StawkaMiesieczna;
 
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 System.out.println("Bledne dane");
             }
         }
 
-        public static void WybierzPracownika(Firma firma)
-        {
-            try
-            {
+        public static void WybierzPracownika(Firma firma) {
+            try {
                 String wynik = "Wybierz podwykonawce:\n";
-                for(int i =0; i<firma.OgloszeniaPracownicy.size(); i++)
-                {
-                    wynik +="|"+i+"|"+firma.OgloszeniaPracownicy.get(i).Wypisz()+" "+firma.OgloszeniaPracownicy.get(i).getClass()+"\n";
+                for (int i = 0; i < firma.OgloszeniaPracownicy.size(); i++) {
+                    wynik += "|" + i + "|" + firma.OgloszeniaPracownicy.get(i).Wypisz() + " " + firma.OgloszeniaPracownicy.get(i).getClass() + "\n";
                 }
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
@@ -67,9 +57,7 @@ public class MenuZatrudnijPracownika {
                 firma.OgloszeniaPracownicy.remove(indeks);
                 firma.IloscPieniedzy -= pracownik.StawkaMiesieczna;
 
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 System.out.println("Bledne dane");
             }
         }

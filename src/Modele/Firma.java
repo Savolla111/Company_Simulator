@@ -29,8 +29,8 @@ public class Firma {
     public boolean CzyPrzegrana;
     public List<Projekt> ProjektyDoZaplaty;
     public boolean CzyWygrana;
-    public Firma(int IloscPieniedzy, Termin ObecnyTermin)
-    {
+
+    public Firma(int IloscPieniedzy, Termin ObecnyTermin) {
         this.IloscPieniedzy = IloscPieniedzy;
         this.ObecnyTermin = ObecnyTermin;
         Projekty = new ArrayList<Projekt>();
@@ -48,16 +48,13 @@ public class Firma {
 
     }
 
-    public void NastepnyDzien()
-    {
-        ObecnyTermin =  ObecnyTermin.DodajDni(1);
-        if(IloscPieniedzy == 0)
-        {
+    public void NastepnyDzien() {
+        ObecnyTermin = ObecnyTermin.DodajDni(1);
+        if (IloscPieniedzy == 0) {
             CzyPrzegrana = true;
         }
 
-        if(CzyGraWygrana())
-        {
+        if (CzyGraWygrana()) {
             System.out.println("Wygrales");
             CzyWygrana = true;
         }
@@ -86,12 +83,11 @@ public class Firma {
 
             PracujPracownik(IloscTesterow);
             List<Integer> indeksyZakonczonychProjektow = new ArrayList<Integer>();
-            int iterator  = 0;
-            for (int i=0;i<Projekty.size(); i++
+            int iterator = 0;
+            for (int i = 0; i < Projekty.size(); i++
             ) {
 
-                if(IloscTesterow !=0)
-                {
+                if (IloscTesterow != 0) {
                     if (Pracownicy.size() + Podwykonawcy.size() % IloscTesterow == 3) {
                         for (Technologia technologia : Projekty.get(i).Technologie) {
                             technologia.CzyTestowana = true;
@@ -108,11 +104,8 @@ public class Firma {
                 }
 
 
-
-
             }
-            for(int i: indeksyZakonczonychProjektow)
-            {
+            for (int i : indeksyZakonczonychProjektow) {
                 Projekty.remove(i);
             }
 
@@ -130,64 +123,52 @@ public class Firma {
             ) {
                 ProjektyDoZaplaty.remove(i);
             }
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Bledne dane");
         }
 
     }
 
-    public boolean CzyChory()
-    {
-        if(Losuj(0,100)==1)
-        {
+    public boolean CzyChory() {
+        if (Losuj(0, 100) == 1) {
             return true;
         }
         return false;
     }
 
-    public boolean CzyProjektZakonczony(Projekt projekt)
-    {
+    public boolean CzyProjektZakonczony(Projekt projekt) {
         int sumaDni = 0;
 
-        for (Technologia technologia: projekt.Technologie
+        for (Technologia technologia : projekt.Technologie
         ) {
             sumaDni += technologia.DniRobocze;
         }
         return sumaDni == 0;
     }
-    public int Losuj(int minimalna, int maksymalna)
-    {
-        return  minimalna + (int)(Math.random() * maksymalna);
+
+    public int Losuj(int minimalna, int maksymalna) {
+        return minimalna + (int) (Math.random() * maksymalna);
     }
 
-    public boolean CzyGraWygrana()
-    {
+    public boolean CzyGraWygrana() {
         int ilosc = 0;
-        for(Projekt projekt : Projekty)
-        {
-            if(projekt.poziomTrudnosci.equals(Projekt.PoziomTrudnosci.trudny))
-            {
-                for (Technologia technologia : projekt.Technologie)
-                {
-                    if(technologia.CzyPrzezWlascicielaProgramowane || technologia.CzyPrzezWlascicielaTestowane)
-                    {
+        for (Projekt projekt : Projekty) {
+            if (projekt.poziomTrudnosci.equals(Projekt.PoziomTrudnosci.trudny)) {
+                for (Technologia technologia : projekt.Technologie) {
+                    if (technologia.CzyPrzezWlascicielaProgramowane || technologia.CzyPrzezWlascicielaTestowane) {
                         return false;
                     }
                 }
-                if(projekt.CzyPozyskales)
-                {
-                    ilosc ++;
+                if (projekt.CzyPozyskales) {
+                    ilosc++;
                 }
             }
 
         }
-        return ilosc != 3 && IloscPieniedzy>1000;
+        return ilosc != 3 && IloscPieniedzy > 1000;
     }
 
-    public void PracujPodwykonawca()
-    {
+    public void PracujPodwykonawca() {
 
         for (Podwykonawca podwykonawca :
                 Podwykonawcy) {
@@ -236,8 +217,7 @@ public class Firma {
         }
     }
 
-    public void PracujPracownik(int IloscTesterow)
-    {
+    public void PracujPracownik(int IloscTesterow) {
         for (Pracownik pracownik :
                 Pracownicy) {
             if (ObecnyTermin.Dzien % 6 != 0 && ObecnyTermin.Dzien % 7 != 0) {

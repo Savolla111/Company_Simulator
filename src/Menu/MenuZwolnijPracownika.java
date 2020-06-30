@@ -28,7 +28,7 @@ public class MenuZwolnijPracownika {
             try {
                 String wynik = "Zwolnij: ";
                 for (int i = 0; i < firma.Podwykonawcy.size(); i++) {
-                    wynik += "|" + i + "|" + firma.Podwykonawcy.get(i).Wypisz()+"\n";
+                    wynik += "|" + i + "|" + firma.Podwykonawcy.get(i).Wypisz() + "\n";
                 }
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
@@ -44,7 +44,7 @@ public class MenuZwolnijPracownika {
             try {
                 String wynik = "Zwolnij: ";
                 for (int i = 0; i < firma.Pracownicy.size(); i++) {
-                    wynik += "|" + i + "|" + firma.Pracownicy.get(i).Wypisz()+"\n";
+                    wynik += "|" + i + "|" + firma.Pracownicy.get(i).Wypisz() + "\n";
                 }
                 MenuWypisz.MenuWypiszMetody.Szablon(wynik);
                 indeks = sc.nextInt();
